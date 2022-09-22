@@ -33,6 +33,10 @@ body {
      font-family: 'Courier New', Courier, monospace;
 }
 
+.form--hidden {
+     display: none;
+}
+
 .form > *:first-child {
      margin-top: 0;
 }
