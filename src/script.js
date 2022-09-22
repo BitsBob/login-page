@@ -1,3 +1,16 @@
+function setFormMessage(formElement, type, message) {
+     const messageElement = formElement.querySelector(".form__message");
+
+     messageElement.textContent = message;
+     messageElement.classList.remove("form__message--success", "form__message--error");
+     messageElement.classList.add("form__message--${type}`");
+}
+
+function setInputError(inputElement, message) {
+     inputElement.classList.add("form__input--errror")
+     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
      const loginForm = document.querySelector("#login");
      const createAccountForm = document.querySelector("#createAccount");
@@ -12,5 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
          e.preventDefault();
          loginForm.classList.remove("form--hidden");
          createAccountForm.classList.add("form--hidden");
+     });
+
+     loginForm.addEventListener("submit", e => {
+          e.preventDefault();
+
+          //peform your submit
+
+          setFormMessage(loginForm, "error", "Invalid username/password combanation.");
      });
 });
